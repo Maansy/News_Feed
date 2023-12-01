@@ -10,7 +10,7 @@ from flask_restx import Resource
 from routes.auth_routes import auth_ns
 from routes.post_routes import post_ns
 from routes.follow_routes import follow_ns
-
+from routes.comment_routes import comment_ns
 
 # Create Flask app
 app = Flask(__name__)
@@ -27,9 +27,10 @@ api = Api(app, version='1.0', title='News Feed',
           description='An API For News Feed', doc='/docs/', authorizations=authorizations,)
 
 # add route
-api.add_namespace(auth_ns)
-api.add_namespace(post_ns, path='/posts')
+api.add_namespace(auth_ns, path='/auth')
+api.add_namespace(post_ns, path='/post')
 api.add_namespace(follow_ns, path='/follow')
+api.add_namespace(comment_ns, path='/comment')
 
 # checking the connection to the database
 def check_db_connection():

@@ -1,5 +1,27 @@
 import pymysql
 
+def check_post(db_config, post_id):
+    """
+    Check if a post exists
+    :param post_id: post id
+    :param user_id: user id
+    """
+    try:
+        connection = pymysql.connect(**db_config)
+        with connection.cursor() as cursor:
+            sql = "SELECT * FROM Post WHERE post_id = %s"
+            cursor.execute(sql, (post_id, ))
+            post = cursor.fetchone()
+            if post:
+                return True
+            else:
+                return False
+    except pymysql.MySQLError as e:
+        print(f"Error checking post: {e}")
+    finally:
+        connection.close()
+
+
 def create_post(db_config, user_id, content):
     """
     Add a new post
