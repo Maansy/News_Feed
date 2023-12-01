@@ -9,7 +9,7 @@ from config import db_config
 from flask_restx import Resource
 from routes.auth_routes import auth_ns
 from routes.post_routes import post_ns
-
+from routes.follow_routes import follow_ns
 
 
 # Create Flask app
@@ -23,13 +23,13 @@ authorizations = {
     }
 }
 
-api = Api(app, version='1.0', title='My API',
-          description='A simple API', doc='/docs/', authorizations=authorizations,)
+api = Api(app, version='1.0', title='News Feed',
+          description='An API For News Feed', doc='/docs/', authorizations=authorizations,)
 
 # add route
 api.add_namespace(auth_ns)
 api.add_namespace(post_ns, path='/posts')
-
+api.add_namespace(follow_ns, path='/follow')
 
 # checking the connection to the database
 def check_db_connection():
