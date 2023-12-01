@@ -22,8 +22,6 @@ def token_required(f):
         if  decodedtoken == {}:
             return {'message' : 'Your token is wrong!!!'}, 401
         for item in all_users:
-            print(item)
-            print(decodedtoken)
             if decodedtoken['username'] == item['username'] or decodedtoken['password'] == item['password']:
                 return f(*args, **kwargs)
         return {'message' : 'Your token is wrong!!!'}, 401

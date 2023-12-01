@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request
 import pymysql
 import os
 from dotenv import load_dotenv
@@ -8,6 +8,9 @@ from flask_restx import Api
 from config import db_config
 from flask_restx import Resource
 from routes.auth_routes import auth_ns
+from routes.post_routes import post_ns
+
+
 
 # Create Flask app
 app = Flask(__name__)
@@ -25,6 +28,8 @@ api = Api(app, version='1.0', title='My API',
 
 # add route
 api.add_namespace(auth_ns)
+api.add_namespace(post_ns, path='/posts')
+
 
 # checking the connection to the database
 def check_db_connection():
