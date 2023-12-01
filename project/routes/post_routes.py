@@ -63,7 +63,6 @@ class Post(Resource):
         Update a post by id
         :param post_id: post id
         """
-
         return update_post(post_id)
     
     @post_ns.doc(security='News Feed')
