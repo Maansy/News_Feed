@@ -19,7 +19,7 @@ after running the app, you can find all the endpoints [here](http://127.0.0.1:50
 5. go to the project directory using `cd project`
 6. Install the requirements using `pip install -r requirements.txt`
 7. Create the database by running create_newsfeed_tables.sql
-7. Run the app using `python3 main.py`
+8. Run the app using `python3 main.py`
 
 ## Endpoints
 - `/auth/login` - POST
@@ -42,4 +42,3 @@ after running the app, you can find all the endpoints [here](http://127.0.0.1:50
 - Flask
 - Flask-RESTful
 - Flask-JWT-Extended
-
