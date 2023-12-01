@@ -1,9 +1,5 @@
-from flask import Flask, request
+from flask import Flask
 import pymysql
-import os
-from dotenv import load_dotenv
-from flask_jwt_extended import JWTManager
-from flask_swagger_ui import get_swaggerui_blueprint
 from flask_restx import Api
 from config import db_config
 from flask_restx import Resource
