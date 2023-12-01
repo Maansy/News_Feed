@@ -36,7 +36,8 @@ def login():
 
     user = login_user(db_config, username, password)
     if user:
-        token = signJWT(username, password)
+        user_id = user['user_id']
+        token = signJWT(user_id,username, password)
         return token, 200
     else:
         return {"error": "Invalid username or password"}, 401
