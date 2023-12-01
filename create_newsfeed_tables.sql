@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS Comment (
     FOREIGN KEY (user_id) REFERENCES User(user_id)
 );
 
--- Create the Like table
+-- Create the Likes table
 CREATE TABLE IF NOT EXISTS Likes (
     like_id INT AUTO_INCREMENT PRIMARY KEY,
     post_id INT NOT NULL,
